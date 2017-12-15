@@ -1,12 +1,11 @@
 -----------------------------------
 -- Area: Throne Room
--- NPC:  Throne Room
+--  NPC: Throne Room
 -- Type: Door
 -- !pos -111 -6 0 165
 -------------------------------------
 package.loaded["scripts/zones/Throne_Room/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/globals/keyitems");
 require("scripts/globals/bcnm");
 require("scripts/globals/missions");
@@ -31,10 +30,6 @@ require("scripts/zones/Throne_Room/TextIDs");
     -- param 6: #which mission (linear numbering as above)
     -- 7D03 : stay/run away
 
------------------------------------
--- onTrade Action
------------------------------------
-
 function onTrade(player,npc,trade)
 
     if (TradeBCNM(player,player:getZoneID(),trade,npc)) then
@@ -42,10 +37,6 @@ function onTrade(player,npc,trade)
     end
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -57,10 +48,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -70,10 +57,6 @@ function onEventUpdate(player,csid,option)
     end
 
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);

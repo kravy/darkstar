@@ -1,12 +1,11 @@
 -----------------------------------
 -- Area: Waughroon Shrine
--- NPC:  Burning Circle
+--  NPC: Burning Circle
 -- Waughroon Shrine Burning Circle
 -- !pos -345 104 -260 144
 -------------------------------------
 package.loaded["scripts/zones/Waughroon_Shrine/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/titles");
 require("scripts/globals/keyitems");
@@ -36,10 +35,6 @@ require("scripts/zones/Waughroon_Shrine/TextIDs");
     ---- 19: The Palborough Project
     ---- 20: Shell Shocked
     ---- 21: Beyond infinity
------------------------------------
--- onTrade Action
------------------------------------
-
 function onTrade(player,npc,trade)
 
     if (TradeBCNM(player,player:getZoneID(),trade,npc)) then
@@ -47,10 +42,6 @@ function onTrade(player,npc,trade)
     end
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -61,10 +52,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -74,10 +61,6 @@ function onEventUpdate(player,csid,option)
     end
 
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);

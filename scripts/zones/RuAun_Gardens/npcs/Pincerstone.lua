@@ -1,23 +1,15 @@
 -----------------------------------
 -- Area: Ru'Aun Gardens
--- NPC:  Pincerstone
+--  NPC: Pincerstone
 -- NPCs which activates the blue teleports in sky
 -----------------------------------
 package.loaded["scripts/zones/RuAun_Gardens/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/zones/RuAun_Gardens/TextIDs");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
-end; 
-
------------------------------------
--- onTrigger Action
------------------------------------
+end;
 
 function onTrigger(player,npc)
     local npcid = npc:getID();
@@ -70,7 +62,7 @@ function onTrigger(player,npc)
             GetNPCByID(17310037):openDoor(120);
             portal:openDoor(120);
         end
-    elseif (npcid == 17310035) then -- Seriyu To Genbu 
+    elseif (npcid == 17310035) then -- Seriyu To Genbu
         local portal = GetNPCByID(17310057);
         if (portal:getAnimation() == 8) then
             player:messageSpecial(IT_IS_ALREADY_FUNCTIONING);
@@ -87,7 +79,7 @@ function onTrigger(player,npc)
             portal:openDoor(120);
         end
     elseif (npcid == 17310031) then -- Main to Seriyu
-        local portal = GetNPCByID(17310054);  
+        local portal = GetNPCByID(17310054);
         if (portal:getAnimation() == 8) then
             player:messageSpecial(IT_IS_ALREADY_FUNCTIONING);
         else
@@ -103,21 +95,13 @@ function onTrigger(player,npc)
             portal:openDoor(120);
         end
     end
-    
-end; 
 
------------------------------------
--- onEventUpdate
------------------------------------
+end;
 
 function onEventUpdate(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
 end;
-
------------------------------------
--- onEventFinish
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);

@@ -3,11 +3,9 @@
 -----------------------------------
 package.loaded["scripts/zones/Qubia_arena/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/globals/keyitems");
 require("scripts/globals/missions");
 require("scripts/zones/QuBia_Arena/TextIDs");
-
 -----------------------------------
 
 -- After registering the BCNM via bcnmRegister(bcnmid)
@@ -34,8 +32,8 @@ end;
 function onBcnmLeave(player,instance,leavecode)
     --print("leave code "..leavecode);
     local currentMission = player:getCurrentMission(SANDORIA);
-    if (leavecode == 2) then 
-        --printf("win");
+    if (leavecode == 2) then
+        -- printf("win");
         if (currentMission == THE_HEIR_TO_THE_LIGHT)    then
             player:startEvent(32001,1,1,1,instance:getTimeInside(),1,4,0);
         else
@@ -49,13 +47,13 @@ end;
 function onEventUpdate(player,csid,option)
     --print("bc update csid "..csid.." and option "..option);
 end;
-    
+
 function onEventFinish(player,csid,option)
     --print("bc finish csid "..csid.." and option "..option);
     local currentMission = player:getCurrentMission(SANDORIA);
     local MissionStatus = player:getVar("MissionStatus");
 
-    if (csid == 32001) then 
+    if (csid == 32001) then
         if (currentMission == THE_HEIR_TO_THE_LIGHT and MissionStatus == 3)    then
             player:setVar("MissionStatus",4);
         end

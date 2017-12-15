@@ -5,12 +5,10 @@
 -----------------------------------
 package.loaded["scripts/zones/Ghelsba_Outpost/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/titles");
 require("scripts/globals/keyitems");
 require("scripts/globals/missions");
 require("scripts/zones/Ghelsba_Outpost/TextIDs");
-
 -----------------------------------
 
 -- After registering the BCNM via bcnmRegister(bcnmid)
@@ -30,7 +28,7 @@ end;
 -- from the core when a player disconnects or the time limit is up, etc
 
 function onBcnmLeave(player,instance,leavecode)
--- print(leave code ..leavecode);
+    -- print(leave code ..leavecode);
 
     if (leavecode == 2) then --play end CS. Need time and battle id for record keeping + storage
         if (player:hasCompletedMission(SANDORIA,SAVE_THE_CHILDREN)) then
@@ -45,11 +43,11 @@ function onBcnmLeave(player,instance,leavecode)
 end;
 
 function onEventUpdate(player,csid,option)
--- print(bc update csid ..csid.. and option ..option);
+    -- print(bc update csid ..csid.. and option ..option);
 end;
 
 function onEventFinish(player,csid,option)
--- print(bc finish csid ..csid.. and option ..option);
+    -- print(bc finish csid ..csid.. and option ..option);
 
     if (csid == 32001 and option == 0 and player:getCurrentMission(SANDORIA) == SAVE_THE_CHILDREN and player:getVar("MissionStatus") == 2) then
         player:setTitle(FODDERCHIEF_FLAYER);

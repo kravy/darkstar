@@ -1,12 +1,11 @@
 -----------------------------------
 -- Area: Horlais Peak
--- NPC:  Burning Circle
+--  NPC: Burning Circle
 -- Horlais Peak Burning Circle
 -- !pos -509 158 -211 139
 -------------------------------------
 package.loaded["scripts/zones/Horlais_Peak/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/quests");
 require("scripts/globals/missions");
@@ -31,10 +30,6 @@ require("scripts/zones/Horlais_Peak/TextIDs");
     --- 16: Today's Horoscope
     --- 17: Contaminated Colosseum
 
------------------------------------
--- onTrade Action
------------------------------------
-
 function onTrade(player,npc,trade)
 
     if (TradeBCNM(player,player:getZoneID(),trade,npc)) then
@@ -43,10 +38,6 @@ function onTrade(player,npc,trade)
 
 end;
 
------------------------------------
--- onTrigger Action
------------------------------------
-
 function onTrigger(player,npc)
 
     if (EventTriggerBCNM(player,npc)) then
@@ -54,10 +45,6 @@ function onTrigger(player,npc)
     end
 
 end;
-
------------------------------------
--- onEventUpdate
------------------------------------
 
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
@@ -68,10 +55,6 @@ function onEventUpdate(player,csid,option)
     end
 
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);

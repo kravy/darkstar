@@ -8,7 +8,6 @@ package.loaded["scripts/zones/Throne_Room/TextIDs"] = nil;
 require("scripts/zones/Throne_Room/TextIDs");
 require("scripts/globals/keyitems");
 require("scripts/globals/missions");
-
 -----------------------------------
 
 -- After registering the BCNM via bcnmRegister(bcnmid)

@@ -1,18 +1,14 @@
 -----------------------------------
 -- Area: Cloister of Tides
--- NPC:  Water Protocrystal
+--  NPC: Water Protocrystal
 -- Involved in Quests: Trial by Water, Trial Size Trial by Water
 -- !pos 560 36 560 211
 -----------------------------------
 package.loaded["scripts/zones/Cloister_of_Tides/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/globals/keyitems");
 require("scripts/globals/bcnm");
 require("scripts/zones/Cloister_of_Tides/TextIDs");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -22,10 +18,6 @@ function onTrade(player,npc,trade)
     end
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -39,10 +31,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -53,13 +41,9 @@ function onEventUpdate(player,csid,option)
 
 end;
 
------------------------------------
--- onEventFinish
------------------------------------
-
 function onEventFinish(player,csid,option)
-    --printf("onFinish CSID: %u",csid);
-    --printf("onFinish RESULT: %u",option);
+    -- printf("onFinish CSID: %u",csid);
+    -- printf("onFinish RESULT: %u",option);
 
     if (csid==2) then
         player:delKeyItem(DOMINAS_CERULEAN_SEAL);

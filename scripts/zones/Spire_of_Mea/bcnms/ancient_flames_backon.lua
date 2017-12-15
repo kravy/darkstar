@@ -5,23 +5,21 @@
 -----------------------------------
 package.loaded["scripts/zones/Spire_of_Mea/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/titles");
 require("scripts/globals/quests");
 require("scripts/globals/missions");
 require("scripts/globals/keyitems");
 require("scripts/globals/teleports");
 require("scripts/zones/Spire_of_Mea/TextIDs");
-
 -----------------------------------
 -- EXAMPLE SCRIPT
--- 
+--
 -- What should go here:
 -- giving key items, playing ENDING cutscenes
 --
 -- What should NOT go here:
 -- Handling of "battlefield" status, spawning of monsters,
--- putting loot into treasure pool, 
+-- putting loot into treasure pool,
 -- enforcing ANY rules (SJ/number of people/etc), moving
 -- chars around, playing entrance CSes (entrance CSes go in bcnm.lua)
 
@@ -31,7 +29,7 @@ end;
 
 -- Physically entering the BCNM via bcnmEnter(bcnmid)
 function onBcnmEnter(player,instance)
-    print("instance code ");
+    -- print("instance code ");
 end;
 
 -- Leaving the BCNM by every mean possible, given by the LeaveCode
@@ -46,16 +44,16 @@ function onBcnmLeave(player,instance,leavecode)
     -- printf("leavecode: %u",leavecode);
 
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
-        if (player:getCurrentMission(COP) == THE_MOTHERCRYSTALS) then    
-            if (player:hasKeyItem(LIGHT_OF_HOLLA) and player:hasKeyItem(LIGHT_OF_DEM)) then 
+        if (player:getCurrentMission(COP) == THE_MOTHERCRYSTALS) then
+            if (player:hasKeyItem(LIGHT_OF_HOLLA) and player:hasKeyItem(LIGHT_OF_DEM)) then
                 player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,0,3);
-            elseif (player:hasKeyItem(LIGHT_OF_HOLLA) or player:hasKeyItem(LIGHT_OF_DEM)) then 
-                player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,0,2); 
+            elseif (player:hasKeyItem(LIGHT_OF_HOLLA) or player:hasKeyItem(LIGHT_OF_DEM)) then
+                player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,0,2);
             end
         elseif (player:getCurrentMission(COP) == BELOW_THE_ARKS) then
-            player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,0,1); 
+            player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,0,1);
         else
-            player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,1); -- can't tell which cs is playing when you're doing it again to help 
+            player:startEvent(32001,0,0,0,instance:getTimeInside(),0,0,1); -- can't tell which cs is playing when you're doing it again to help
         end
     elseif (leavecode == 4) then
         player:startEvent(32002);
@@ -69,11 +67,11 @@ end;
 
 function onEventFinish(player,csid,option)
     -- print("bc finish csid "..csid.." and option "..option);
-    
+
     if (csid == 32001) then
-    
+
         if (player:getCurrentMission(COP) == THE_MOTHERCRYSTALS) then
-    
+
             if (player:hasKeyItem(LIGHT_OF_HOLLA) and player:hasKeyItem(LIGHT_OF_DEM)) then
                 player:addExp(1500);
                 player:addKeyItem(LIGHT_OF_MEA);
@@ -89,7 +87,7 @@ function onEventFinish(player,csid,option)
                 player:messageSpecial(CANT_REMEMBER,LIGHT_OF_MEA);
                 player:addStatusEffectEx(EFFECT_TELEPORT,0,TELEPORT_EXITPROMMEA,0,1);
             end
-        
+
         elseif (player:getCurrentMission(COP) == BELOW_THE_ARKS) then
             player:addExp(1500);
             player:completeMission(COP,BELOW_THE_ARKS);
@@ -99,7 +97,7 @@ function onEventFinish(player,csid,option)
             player:addKeyItem(LIGHT_OF_MEA);
             player:messageSpecial(CANT_REMEMBER,LIGHT_OF_MEA);
             player:addStatusEffectEx(EFFECT_TELEPORT,0,TELEPORT_EXITPROMMEA,0,1);
-        else    
+        else
             player:addExp(1500);
             player:addStatusEffectEx(EFFECT_TELEPORT,0,TELEPORT_EXITPROMMEA,0,1);
         end

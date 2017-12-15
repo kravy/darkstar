@@ -1,17 +1,13 @@
 -----------------------------------
 -- Area: temenos
--- NPC:  Matter diffusion module
+--  NPC: Matter diffusion module
 -- !pos
 -----------------------------------
 package.loaded["scripts/zones/Temenos/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/limbus");
 require("scripts/globals/keyitems");
 require("scripts/zones/Temenos/TextIDs");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -36,21 +32,17 @@ if (player:hasKeyItem(COSMOCLEANSE) and player:hasKeyItem(WHITE_CARD) ) then
      print("error player  don't have cosmo clean");
   end
 
-   if (InstanceTrade~=0) then
+    if (InstanceTrade~=0) then
    player:setVar("Limbus_Trade_Item-T",InstanceTrade);
    player:tradeComplete();
    player:messageSpecial(CHIP_TRADE_T);
    player:startEvent(32000,0,0,0,InstanceTrade,0,0,0,0);
    player:setVar("limbusbitmap",InstanceTrade);
-   end
+    end
 
 
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
  local instancelist ={};
@@ -64,7 +56,7 @@ function onTrigger(player,npc)
   printf("currentlimbus: %u",currentlimbus);
 
 
-   if (player:hasKeyItem(COSMOCLEANSE)) then
+    if (player:hasKeyItem(COSMOCLEANSE)) then
        if (player:hasStatusEffect(EFFECT_BATTLEFIELD) == false) then
          local LimbusTradeItem = player:getVar("Limbus_Trade_Item-T");
            for nt = 1,#instancelist,2 do
@@ -137,14 +129,10 @@ function onTrigger(player,npc)
 
   else
        player:messageSpecial(CONDITION_FOR_LIMBUS_T);
-    print("error player  don't have cosmo clean");
+    -- print("error player  don't have cosmo clean");
   end
 
 end;
-
------------------------------------
--- onEventUpdate
------------------------------------
 
 function onEventUpdate(player,csid,option)
 
@@ -166,14 +154,10 @@ function onEventUpdate(player,csid,option)
 
 end;
 
------------------------------------
--- onEventFinish
------------------------------------
-
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
-   if (csid == 32000) then
+    if (csid == 32000) then
 
-   end
+    end
 end;

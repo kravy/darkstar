@@ -1,16 +1,14 @@
 -----------------------------------
 -- Area: Qu'Bia Arena
--- NPC:  Burning Circle
+--  NPC: Burning Circle
 -- !pos -221 -24 19 206
 -------------------------------------
 package.loaded["scripts/zones/QuBia_Arena/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/missions");
 require("scripts/globals/keyitems");
 require("scripts/zones/QuBia_Arena/TextIDs");
-
 -------------------------------------
 
     -- 0: The Ruins of Fei'Yin, Darkness Rising, The Final Seal (Rank 5 Mission)
@@ -36,10 +34,6 @@ require("scripts/zones/QuBia_Arena/TextIDs");
     -- 20: Those Who Lurk in the Shadows (III)
     -- 21: Beyond Infinity
 
------------------------------------
--- onTrade Action
------------------------------------
-
 function onTrade(player,npc,trade)
 
     if (TradeBCNM(player,player:getZoneID(),trade,npc)) then
@@ -47,10 +41,6 @@ function onTrade(player,npc,trade)
     end
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -65,10 +55,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -78,10 +64,6 @@ function onEventUpdate(player,csid,option)
     end
 
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);

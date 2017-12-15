@@ -4,11 +4,9 @@
 -----------------------------------
 package.loaded["scripts/zones/LaLoff_Amphitheater/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/zones/LaLoff_Amphitheater/TextIDs");
 require("scripts/globals/missions");
 require("scripts/globals/keyitems");
-
 -----------------------------------
 
 -- Death cutscenes:
@@ -44,30 +42,30 @@ function onBcnmLeave(player,instance,leavecode)
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
         local record = instance:getRecord();
         local clearTime = record.clearTime;
-    
+
         if (player:hasCompletedMission(ZILART,ARK_ANGELS)) then
             player:startEvent(32001,instance:getEntrance(),clearTime,1,instance:getTimeInside(),180,4,1);        -- winning CS (allow player to skip)
         else
             player:startEvent(32001,instance:getEntrance(),clearTime,1,instance:getTimeInside(),180,4,0);        -- winning CS (allow player to skip)
         end
-        
+
     elseif (leavecode == 4) then
         player:startEvent(32002, 0, 0, 0, 0, 0, instance:getEntrance(), 180);    -- player lost
     end
 end;
 
 function onEventUpdate(player,csid,option)
--- print("bc update csid "..csid.." and option "..option);
+    -- print("bc update csid "..csid.." and option "..option);
 
 end;
 
 function onEventFinish(player,csid,option)
  -- print("bc finish csid "..csid.." and option "..option);
- 
+
    local AAKeyitems = (player:hasKeyItem(SHARD_OF_APATHY) and player:hasKeyItem(SHARD_OF_ARROGANCE)
          and player:hasKeyItem(SHARD_OF_COWARDICE) and player:hasKeyItem(SHARD_OF_ENVY));
 
-   if (csid == 32001) then
+    if (csid == 32001) then
       if (player:getCurrentMission(ZILART) == ARK_ANGELS  and player:getVar("ZilartStatus") == 1) then
          player:addKeyItem(SHARD_OF_RAGE);
          player:messageSpecial(KEYITEM_OBTAINED,SHARD_OF_RAGE);
@@ -77,7 +75,7 @@ function onEventFinish(player,csid,option)
             player:setVar("ZilartStatus",0);
          end
       end
-   end
+    end
 
    local AAKeyitems = (player:hasKeyItem(SHARD_OF_APATHY) and player:hasKeyItem(SHARD_OF_ARROGANCE)
          and player:hasKeyItem(SHARD_OF_COWARDICE) and player:hasKeyItem(SHARD_OF_ENVY)

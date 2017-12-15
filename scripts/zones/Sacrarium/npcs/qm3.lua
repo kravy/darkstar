@@ -1,17 +1,13 @@
 -----------------------------------
--- Area:  Sacrarium
--- NPC:   qm3 (???)
+-- Area: Sacrarium
+--  NPC: qm3 (???)
 -- Notes: Used to spawn Old Prof. Mariselle
 -- !pos 62.668 -3.111 127.288 28
 -----------------------------------
 package.loaded["scripts/zones/Sacrarium/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/zones/Sacrarium/TextIDs");
 require("scripts/globals/keyitems");
-
------------------------------------
--- onTrigger Action
 -----------------------------------
 
 function onTrigger(player,npc)
@@ -35,16 +31,8 @@ function onTrigger(player,npc)
     end
 end;
 
------------------------------------
--- onTrade Action
------------------------------------
-
 function onTrade(player,npc,trade)
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventUpdate(player,csid,option)
 end

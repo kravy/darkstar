@@ -1,18 +1,14 @@
 -----------------------------------
 -- Area: Spire_of_Dem
--- NPC:  Web of Recollections
+--  NPC: Web of Recollections
 -- !pos 0.000 -2.0 247.992 19
 -----------------------------------
 package.loaded["scripts/zones/Spire_of_Dem/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/quests");
 require("scripts/globals/missions");
 require("scripts/zones/Spire_of_Dem/TextIDs");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -22,10 +18,6 @@ function onTrade(player,npc,trade)
     end
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -38,10 +30,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -51,10 +39,6 @@ function onEventUpdate(player,csid,option)
     end
 
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);

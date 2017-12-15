@@ -1,20 +1,16 @@
 -----------------------------------
---  Area: Sauromugue Champaign
+-- Area: Sauromugue Champaign
 --  NPC: qm2 (???) (Tower 2)
 --  Involved in Quest: THF AF "As Thick As Thieves"
 -- !pos 196.830 31.300 206.078 120
 -----------------------------------
 package.loaded["scripts/zones/Sauromugue_Champaign/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/settings");
 require("scripts/globals/quests");
 require("scripts/globals/keyitems");
 require("scripts/globals/status");
 require("scripts/zones/Sauromugue_Champaign/TextIDs");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -38,10 +34,6 @@ function onTrade(player,npc,trade)
         end
     end
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -67,18 +59,10 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
 end;
-
------------------------------------
--- onEventFinish
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);

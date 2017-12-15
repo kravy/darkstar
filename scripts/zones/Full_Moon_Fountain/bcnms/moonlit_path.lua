@@ -4,11 +4,9 @@
 -----------------------------------
 package.loaded["scripts/zones/Full_Moon_Fountain/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/keyitems");
 require("scripts/globals/missions");
 require("scripts/zones/Full_Moon_Fountain/TextIDs");
-
 -----------------------------------
 
 -- What should go here:
@@ -16,7 +14,7 @@ require("scripts/zones/Full_Moon_Fountain/TextIDs");
 --
 -- What should NOT go here:
 -- Handling of "battlefield" status, spawning of monsters,
--- putting loot into treasure pool, 
+-- putting loot into treasure pool,
 -- enforcing ANY rules (SJ/number of people/etc), moving
 -- chars around, playing entrance CSes (entrance CSes go in bcnm.lua)
 
@@ -37,9 +35,9 @@ end;
 -- from the core when a player disconnects or the time limit is up, etc
 
 function onBcnmLeave(player,instance,leavecode)
--- print("leave code "..leavecode);
+    -- print("leave code "..leavecode);
     moonlitPath = player:getQuestStatus(WINDURST,THE_MOONLIT_PATH)
-    
+
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
         if (moonlitPath == QUEST_COMPLETED) then
             player:startEvent(32001,1,1,1,instance:getTimeInside(),1,0,1);
@@ -52,11 +50,11 @@ function onBcnmLeave(player,instance,leavecode)
 end;
 
 function onEventUpdate(player,csid,option)
--- print("bc update csid "..csid.." and option "..option);
+    -- print("bc update csid "..csid.." and option "..option);
 end;
-        
+
 function onEventFinish(player,csid,option)
--- print("bc finish csid "..csid.." and option "..option);
+    -- print("bc finish csid "..csid.." and option "..option);
 
     if (csid == 32001) then
         player:delKeyItem(MOON_BAUBLE);

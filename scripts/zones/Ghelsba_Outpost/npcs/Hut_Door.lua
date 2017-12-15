@@ -1,12 +1,10 @@
 -----------------------------------
 -- Area: Ghelsba_Outpost
--- NPC:  Hut Door
+--  NPC: Hut Door
 -- !pos -165.357 -11.672 77.771 140
 -------------------------------------
 package.loaded["scripts/zones/Ghelsba_Outpost/TextIDs"] = nil;
-package.loaded["scripts/globals/bcnm"] = nil;
 -------------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/titles");
 require("scripts/globals/keyitems");
@@ -22,10 +20,6 @@ require("scripts/zones/Ghelsba_Outpost/TextIDs");
     ---- 5:
     ---- 6:
 
------------------------------------
--- onTrade Action
------------------------------------
-
 function onTrade(player,npc,trade)
 
   if (TradeBCNM(player,player:getZoneID(),trade,npc)) then
@@ -33,10 +27,6 @@ function onTrade(player,npc,trade)
     end
 
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -54,10 +44,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -68,21 +54,17 @@ function onEventUpdate(player,csid,option)
 
 end;
 
------------------------------------
--- onEventFinish Action
------------------------------------
-
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);
     -- printf("onFinish RESULT: %u",option);
 
-   if (csid == 3 or csid == 55) then
+    if (csid == 3 or csid == 55) then
       player:delKeyItem(ORCISH_HUT_KEY);
       player:setVar("MissionStatus",4);
    else
         if (EventFinishBCNM(player,csid,option)) then
             return;
         end
-   end
+    end
 
 end;

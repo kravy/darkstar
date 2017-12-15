@@ -1,27 +1,19 @@
 -----------------------------------
 -- Area: Talacca_Cove
--- NPC:  rock slab (corsair job flag quest)
+--  NPC: rock slab (corsair job flag quest)
 -- !pos -99 -7 -91 57
 -----------------------------------
 package.loaded["scripts/zones/Talacca_Cove/TextIDs"] = nil;
-package.loaded["scripts/globals/bcnm"] = nil;
 -----------------------------------
 require("scripts/zones/Talacca_Cove/TextIDs");
 require("scripts/globals/keyitems");
 require("scripts/globals/quests");
 require("scripts/globals/status");
 require("scripts/globals/bcnm");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
 end;
-
------------------------------------
--- onTrigger Action
------------------------------------
 
 function onTrigger(player,npc)
 
@@ -35,13 +27,9 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
--- printf("CSID: %u",csid);
--- printf("RESULT: %u",option);
+    -- printf("CSID: %u",csid);
+    -- printf("RESULT: %u",option);
 
     if (EventUpdateBCNM(player,csid,option)) then
         return;
@@ -49,13 +37,9 @@ function onEventUpdate(player,csid,option)
 
 end;
 
------------------------------------
--- onEventFinish
------------------------------------
-
 function onEventFinish(player,csid,option)
--- printf("CSID: %u",csid);
--- printf("RESULT: %u",option);
+    -- printf("CSID: %u",csid);
+    -- printf("RESULT: %u",option);
 
 
     if (csid == 3) then -- complete corsair job flag quest

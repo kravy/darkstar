@@ -4,10 +4,8 @@
 -----------------------------------
 package.loaded["scripts/zones/Navukgo_Execution_Chamber/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/keyitems");
 require("scripts/zones/Navukgo_Execution_Chamber/TextIDs");
-
 ----------------------------------------
 
 -- After registering the BCNM via bcnmRegister(bcnmid)
@@ -34,8 +32,8 @@ end;
 
 function onBcnmLeave(player,instance,leavecode)
     -- print("leave code "..leavecode);
-   
-    if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage        
+
+    if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
         if (player:hasCompletedMission(TOAU,SHIELD_OF_DIPLOMACY)) then
             player:startEvent(32001,1,1,1,instance:getTimeInside(),1,4,1);
         else
@@ -44,20 +42,20 @@ function onBcnmLeave(player,instance,leavecode)
     elseif (leavecode == 4) then
         player:startEvent(32002);
     end
-    
+
 end;
 
 function onEventUpdate(player,csid,option)
     -- print("bc update csid "..csid.." and option "..option);
 end;
-    
+
 function onEventFinish(player,csid,option)
     -- print("bc finish csid "..csid.." and option "..option);
-    
+
     if (csid == 32001) then
         player:completeMission(TOAU,SHIELD_OF_DIPLOMACY);
         player:setVar("AhtUrganStatus",0);
         player:addMission(TOAU,SOCIAL_GRACES);
     end
-    
+
 end;

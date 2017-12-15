@@ -4,11 +4,9 @@
 -----------------------------------
 package.loaded["scripts/zones/Cloister_of_Tides/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/keyitems");
 require("scripts/globals/quests");
 require("scripts/zones/Cloister_of_Tides/TextIDs");
-
 -----------------------------------
 
 -- After registering the BCNM via bcnmRegister(bcnmid)
@@ -28,8 +26,8 @@ end;
 -- from the core when a player disconnects or the time limit is up, etc
 
 function onBcnmLeave(player,instance,leavecode)
--- print("leave code "..leavecode);
-    
+    -- print("leave code "..leavecode);
+
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
         if (player:getQuestStatus(OUTLANDS,TRIAL_BY_WATER) == QUEST_COMPLETED) then
             player:startEvent(32001,1,1,1,instance:getTimeInside(),1,0,1);
@@ -39,20 +37,20 @@ function onBcnmLeave(player,instance,leavecode)
     elseif (leavecode == 4) then
         player:startEvent(32002);
     end
-    
+
 end;
 
 function onEventUpdate(player,csid,option)
--- print("bc update csid "..csid.." and option "..option);
+    -- print("bc update csid "..csid.." and option "..option);
 end;
-        
+
 function onEventFinish(player,csid,option)
--- print("bc finish csid "..csid.." and option "..option);
+    -- print("bc finish csid "..csid.." and option "..option);
 
     if (csid == 32001) then
         player:delKeyItem(TUNING_FORK_OF_WATER);
         player:addKeyItem(WHISPER_OF_TIDES);
         player:messageSpecial(KEYITEM_OBTAINED,WHISPER_OF_TIDES);
     end
-    
-end;    
+
+end;

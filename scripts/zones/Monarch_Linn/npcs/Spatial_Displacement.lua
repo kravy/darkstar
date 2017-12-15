@@ -1,18 +1,14 @@
 -----------------------------------
 -- Area: Monarch_Linn
--- NPC:  Spatial Displacement
+--  NPC: Spatial Displacement
 -- !pos -35 -1 -539 31
 -----------------------------------
 package.loaded["scripts/zones/Monarch_LinnTextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/quests");
 require("scripts/globals/missions");
 require("scripts/zones/Monarch_Linn/TextIDs");
-
------------------------------------
--- onTrade
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -23,12 +19,8 @@ function onTrade(player,npc,trade)
 
 end;
 
------------------------------------
--- onTrigger Action
------------------------------------
-
 function onTrigger(player,npc)
-    --printf("npcID : %u",npcID);
+    -- printf("npcID : %u",npcID);
 
     local npcID = npc:getID();
     local X = player:getXPos();
@@ -53,10 +45,6 @@ function onTrigger(player,npc)
 
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
     -- printf("onUpdate RESULT: %u",option);
@@ -66,10 +54,6 @@ function onEventUpdate(player,csid,option)
     end
 
 end;
-
------------------------------------
--- onEventFinish Action
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);

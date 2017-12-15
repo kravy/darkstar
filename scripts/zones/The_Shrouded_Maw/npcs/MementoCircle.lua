@@ -1,30 +1,22 @@
 -----------------------------------
 -- Area: The_Shrouded_Maw
--- NPC:  MementoCircle
+--  NPC: MementoCircle
 -----------------------------------
 package.loaded["scripts/zones/The_Shrouded_Maw/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/bcnm");
 require("scripts/globals/quests");
 require("scripts/globals/missions");
 require("scripts/zones/The_Shrouded_Maw/TextIDs");
-
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
-    
+
     if (TradeBCNM(player,player:getZoneID(),trade,npc)) then
         return;
     end
-    
-end;
 
------------------------------------
--- onTrigger Action
------------------------------------
+end;
 
 function onTrigger(player,npc)
 
@@ -33,12 +25,8 @@ function onTrigger(player,npc)
         else
         return 1;
     end
-    
-end;
 
------------------------------------
--- onEventUpdate
------------------------------------
+end;
 
 function onEventUpdate(player,csid,option)
     -- printf("onUpdate CSID: %u",csid);
@@ -47,19 +35,15 @@ function onEventUpdate(player,csid,option)
     if (EventUpdateBCNM(player,csid,option)) then
         return;
     end
-    
-end;
 
------------------------------------
--- onEventFinish Action
------------------------------------
+end;
 
 function onEventFinish(player,csid,option)
     -- printf("onFinish CSID: %u",csid);
     -- printf("onFinish RESULT: %u",option);
-    
+
     if (EventFinishBCNM(player,csid,option)) then
         return;
     end
-    
+
 end;

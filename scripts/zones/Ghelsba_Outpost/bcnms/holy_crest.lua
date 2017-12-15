@@ -11,7 +11,6 @@ require("scripts/globals/quests");
 require("scripts/globals/status");
 require("scripts/globals/titles");
 require("scripts/globals/pets");
-
 -----------------------------------
 
 -- After registering the BCNM via bcnmRegister(bcnmid)
@@ -31,7 +30,7 @@ end;
 -- from the core when a player disconnects or the time limit is up, etc
 
 function onBcnmLeave(player,instance,leavecode)
--- print(leave code ..leavecode);
+    -- print(leave code ..leavecode);
 
     if (leavecode == 2) then --play end CS. Need time and battle id for record keeping + storage
         if (player:getQuestStatus(SANDORIA,THE_HOLY_CREST) == QUEST_ACCEPTED) then
@@ -46,11 +45,11 @@ function onBcnmLeave(player,instance,leavecode)
 end;
 
 function onEventUpdate(player,csid,option)
--- print(bc update csid ..csid.. and option ..option);
+    -- print(bc update csid ..csid.. and option ..option);
 end;
 
 function onEventFinish(player,csid,option)
--- print("bc finish csid: "..csid.."and option: "..option);
+    -- print("bc finish csid: "..csid.."and option: "..option);
 
     if (csid == 32001 and option ~= 0 and player:hasKeyItem(DRAGON_CURSE_REMEDY) == true) then
         player:addTitle(HEIR_TO_THE_HOLY_CREST);

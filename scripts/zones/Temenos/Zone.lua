@@ -5,13 +5,9 @@
 -----------------------------------
 package.loaded["scripts/zones/Temenos/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/settings");
 require("scripts/zones/Temenos/TextIDs");
 require("scripts/globals/limbus");
-
------------------------------------
--- onInitialize
 -----------------------------------
 
 function onInitialize(zone)
@@ -36,11 +32,6 @@ function onInitialize(zone)
     zone:registerRegion(8,  -542,-4,-586    ,-538,4,-582); -- 'Central_Temenos_4th_Floor'  -540 -2  -584
 end;
 
-
------------------------------------
--- onConquestUpdate
------------------------------------
-
 function onConquestUpdate(zone, updatetype)
     local players = zone:getPlayers();
 
@@ -49,19 +40,11 @@ function onConquestUpdate(zone, updatetype)
     end
 end;
 
------------------------------------
--- onZoneIn
------------------------------------
-
 function onZoneIn(player,prevZone)
     local cs = -1;
         player:setPos(580,-1.5,4.452,192);
     return cs;
 end;
-
------------------------------------
--- onRegionEnter
------------------------------------
 
 function onRegionEnter(player,region)
     local regionID = region:GetRegionID();
@@ -119,21 +102,13 @@ function onRegionEnter(player,region)
     }
 end;
 
-
 function onRegionLeave(player,region)
 end;
------------------------------------
--- onEventUpdate
------------------------------------
 
 function onEventUpdate(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
 end;
-
------------------------------------
--- onEventFinish
------------------------------------
 
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);

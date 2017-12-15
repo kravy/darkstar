@@ -1,16 +1,13 @@
 -----------------------------------
 -- Area: Appolyon
--- NPC:  Radiant_Aureole
+--  NPC: Radiant_Aureole
 -- !pos
 -----------------------------------
 require("scripts/globals/limbus");
 require("scripts/globals/keyitems");
 package.loaded["scripts/zones/Apollyon/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/zones/Apollyon/TextIDs");
------------------------------------
--- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -36,10 +33,6 @@ if (player:hasKeyItem(COSMOCLEANSE)) then
 
 end;
 
------------------------------------
--- onTrigger Action
------------------------------------
-
 function onTrigger(player,npc)
  local instancelist ={};
  local limbusbitmap = 0 ;
@@ -54,7 +47,7 @@ function onTrigger(player,npc)
 printf("currentlimbus: %u",currentlimbus);
 
 
-   if (player:hasKeyItem(COSMOCLEANSE)) then
+    if (player:hasKeyItem(COSMOCLEANSE)) then
        if (player:hasStatusEffect(EFFECT_BATTLEFIELD) == false) then
          local LimbusTradeItem = player:getVar("Limbus_Trade_Item");
            for nt = 1,#instancelist,2 do
@@ -127,14 +120,10 @@ printf("currentlimbus: %u",currentlimbus);
 
   else
        player:messageSpecial(CONDITION_FOR_LIMBUS);
-    print("error player  don't have cosmo clean");
+    -- print("error player  don't have cosmo clean");
   end
 
 end;
-
------------------------------------
--- onEventUpdate
------------------------------------
 
 function onEventUpdate(player,csid,option)
 
@@ -156,14 +145,10 @@ function onEventUpdate(player,csid,option)
 
 end;
 
------------------------------------
--- onEventFinish
------------------------------------
-
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
-   if (csid == 32000) then
+    if (csid == 32000) then
 
-   end
+    end
 end;

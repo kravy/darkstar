@@ -4,12 +4,10 @@
 -----------------------------------
 package.loaded["scripts/zones/LaLoff_Amphitheater/TextIDs"] = nil;
 -------------------------------------
-
 require("scripts/zones/LaLoff_Amphitheater/TextIDs");
 require("scripts/globals/missions");
 require("scripts/globals/quests");
 require("scripts/globals/keyitems");
-
 -----------------------------------
 
 -- Death cutscenes:
@@ -60,21 +58,21 @@ function onBcnmLeave(player,instance,leavecode)
         7d01, 1, 378, 3, 903, 180, 8, 0, 0 -- Neo AA MR
         7d02, 0, 80, 1, 512, 4, 4, 180 -- Neo DM (lose)
     ]]
-        
+
     elseif (leavecode == 4) then
         player:startEvent(32002, 0, 0, 0, 0, 0, instance:getEntrance(), 180);    -- player lost
     end
 end;
 
 function onEventUpdate(player,csid,option)
--- print("bc update csid "..csid.." and option "..option);
+    -- print("bc update csid "..csid.." and option "..option);
 
 end;
 
 function onEventFinish(player,csid,option)
--- print("bc finish csid "..csid.." and option "..option);
+    -- print("bc finish csid "..csid.." and option "..option);
 
-   if (csid == 32001) then
+    if (csid == 32001) then
       if (player:getQuestStatus(OUTLANDS,DIVINE_MIGHT) == QUEST_ACCEPTED) then
          player:setVar("DivineMight",2); -- Used to use 2 to track completion, so that's preserved to maintain compatibility
          for i=SHARD_OF_APATHY, SHARD_OF_RAGE do
@@ -89,5 +87,5 @@ function onEventFinish(player,csid,option)
       elseif (player:getQuestStatus(OUTLANDS,DIVINE_MIGHT_REPEAT) == QUEST_ACCEPTED and player:hasKeyItem(MOONLIGHT_ORE) == true) then
          player:setVar("DivineMight",2);
       end
-   end
+    end
 end;
